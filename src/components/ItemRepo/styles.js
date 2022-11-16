@@ -24,3 +24,5 @@ export const ItemContainer = styled.div`
         margin: 20px 0;
     }
 `
+
+//hr é a linha

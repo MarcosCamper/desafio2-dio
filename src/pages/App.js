@@ -13,7 +13,7 @@ function App() {
   const [currentRepo, setCurrentRepo] = useState('');
   const [repos, setRepos] = useState([]);
 
-
+//Função async pq a gente vai acessar uma API e pode demorar a resposta!
   const handleSearchRepo = async () => {
 
     const {data} = await api.get(`repos/${currentRepo}`)
@@ -30,7 +30,7 @@ function App() {
 
     }
     alert('Repositório não encontrado')
-
+//Alert não está funcionando.
   }
 
   const handleRemoveRepo = (id) => {
