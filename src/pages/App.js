@@ -29,12 +29,12 @@ function App() {
       }
 
     }
-    alert('Repositório não encontrado')
-//Alert não está funcionando.
+    alert('Repositório já encontrado')
+//Alert não indica repositorio nao encontrado, apenas os já encontrados.
   }
 
   const handleRemoveRepo = (id) => {
-    console.log('Removendo registro', id);
+    setRepos(repos.filter((repo) => repo.id !== id));
 
     // utilizar filter.
   }
@@ -43,9 +43,13 @@ function App() {
   return (
     <Container>
       <img src={gitLogo} width={72} height={72} alt="github logo"/>
-      <Input value={currentRepo} onChange={(e) => setCurrentRepo(e.target.value)} />
+
+      <Input 
+      value={currentRepo.trim()}
+      onChange={(e) => setCurrentRepo(e.target.value)} />
       <Button onClick={handleSearchRepo}/>
-      {repos.map(repo => <ItemRepo handleRemoveRepo={handleRemoveRepo} repo={repo}/>)}
+      {repos.map(repo => (
+      <ItemRepo repo={repo} handleRemoveRepo={handleRemoveRepo}/>))}
     </Container>
   );
 }
